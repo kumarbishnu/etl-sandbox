@@ -1,11 +1,21 @@
-def create_file_format(cursor, format_name:str):
+from src.config_loader import get_config
+
+
+def create_file_format(cursor):
+    config = get_config()
+    format_name = config["etl"]["format_name"]
+
     cursor.execute(f"""CREATE OR REPLACE FILE FORMAT {format_name}
     TYPE = 'CSV'
     COMPRESSION = 'GZIP'
     SKIP_HEADER = 1
 """)
 
-def create_stage(cursor, stage_name:str, format_name:str):
+def create_stage(cursor):
+    config = get_config()
+    format_name = config["etl"]["format_name"]
+    stage_name = config["etl"]["stage_name"]
+
     cursor.execute(f"""CREATE OR REPLACE STAGE {stage_name}
     DIRECTORY = ( ENABLE = true ) 
 	ENCRYPTION = ( TYPE = 'SNOWFLAKE_SSE' ) 
