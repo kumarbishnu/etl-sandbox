@@ -8,7 +8,9 @@ def create_file_format(cursor):
     cursor.execute(f"""CREATE OR REPLACE FILE FORMAT {format_name}
     TYPE = 'CSV'
     COMPRESSION = 'GZIP'
+    FIELD_DELIMITER = '|'
     SKIP_HEADER = 1
+    NULL_IF = ('\\N')
 """)
 
 def create_stage(cursor):
