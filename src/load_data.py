@@ -28,14 +28,13 @@ def load_data(cursor):
     stage_name = config["etl"]["stage_name"]
     file_format = config["etl"]["format_name"]
 
-    tables = parse_table_names()
+    mappings = parse_mappings()
 
-    for table in tables:
-        filename = f"{table}_0_0_0.csv.gz"
+    for table, filename in mappings.items():
         print(f"Loading {filename} into {table}")
         try:
-            cursor.execute(f"""COPY INTO {table} 
-            FROM @{stage_name}/{filename} 
+            cursor.execute(f"""COPY INTO {table}
+            FROM @{stage_name}/{filename}
             FILE_FORMAT = (FORMAT_NAME = {file_format})
             ON_ERROR = 'CONTINUE'
 """)

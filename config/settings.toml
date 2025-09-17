@@ -11,4 +11,3 @@ schema = ""
 [etl]
 format_name = "fmt_dw_lnd_rms"
 stage_name = "stg_dw_lnd_rms"
-data_folder = "files/data"

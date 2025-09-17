@@ -3,9 +3,9 @@ from pathlib import Path
 from src.config_loader import get_config
 
 
-def upload_files(cursor):
+def upload_files(cursor, data_folder="files/data"):
     config = get_config()
-    data_folder = Path(config["etl"]["data_folder"])
+    data_folder = Path(data_folder)
     stage_name = config["etl"]["stage_name"]
 
     for file in data_folder.glob("*.csv.gz"):
