@@ -10,7 +10,7 @@ def create_file_format(cursor):
     COMPRESSION = 'GZIP'
     FIELD_DELIMITER = '|'
     SKIP_HEADER = 1
-    NULL_IF = ('\\N')
+    NULL_IF = ('\\\\N')
 """)
 
 def create_stage(cursor):
