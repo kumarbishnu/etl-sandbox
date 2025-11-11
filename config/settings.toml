@@ -1,11 +1,11 @@
 [snowflake]
-account = ""
-user = ""
-password = ""
-warehouse = ""
-database = ""
-role = ""
-schema = ""
+account = "DBMWIRB-ROBLING_PARTNER"
+user = "BDAS"
+password = "PC93OOBcqET5si"
+warehouse = "ROBLING_BOOTCAMP_WH"
+database = "ROBLING_IMP_DB_SEP25"
+role = "ROBLING_BOOTCAMP_ROLE"
+schema = "DW_LND_RMS"
 
 
 [etl]

@@ -1,9 +1,15 @@
 [project]
 name = "etl-sandbox"
 version = "0.1.0"
-description = "Add your description here"
+description = "ETL project"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "snowflake-connector-python>=3.17.3",
+    "snowflake-connector-python",
 ]
+
+[tool.uv]
+package = true
+
+[project.scripts]
+check-connection = "etl.connection:check_connection"

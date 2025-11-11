@@ -1,4 +1,4 @@
-def run_ddl(cursor, ddl_path:str="files/RMS_DDL.sql"):
+def run_ddl(cursor, ddl_path: str = "files/RMS_DDL.sql"):
     with open(ddl_path, "r") as f:
         ddl_script = f.read()
 
@@ -11,4 +11,3 @@ def run_ddl(cursor, ddl_path:str="files/RMS_DDL.sql"):
             except Exception as e:
                 print(f"⚠️ Failed to execute statement [{i + 1}]: {stmt[:50]}")
                 print(f"   Error: {e}")
-

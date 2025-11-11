@@ -1,4 +1,4 @@
-from src.config_loader import get_config
+from config.config_loader import get_config
 
 
 def parse_mappings(mapping_path="files/mapping.txt"):

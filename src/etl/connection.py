@@ -1,6 +1,6 @@
 import snowflake.connector
 
-from src.config_loader import get_config
+from config.config_loader import get_config
 
 
 def get_connection():
@@ -14,15 +14,17 @@ def get_connection():
         warehouse=sf["warehouse"],
         database=sf["database"],
         role=sf["role"],
-        schema=sf["schema"]
+        schema=sf["schema"],
     )
 
 
-def test_connection():
+def check_connection():
     try:
         conn = get_connection()
         cursor = conn.cursor()
-        cursor.execute("SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_DATABASE(), CURRENT_SCHEMA();")
+        cursor.execute(
+            "SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_DATABASE(), CURRENT_SCHEMA();"
+        )
         result = cursor.fetchone()
         print("✅ Connection successful!")
         print("User:", result[0])

@@ -139,13 +139,13 @@ wheels = [
 [[package]]
 name = "etl-sandbox"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "snowflake-connector-python" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "snowflake-connector-python", specifier = ">=3.17.3" }]
+requires-dist = [{ name = "snowflake-connector-python" }]
 
 [[package]]
 name = "filelock"

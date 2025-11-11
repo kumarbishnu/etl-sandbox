@@ -1,4 +1,4 @@
-from src.config_loader import get_config
+from config.config_loader import get_config
 
 
 def create_file_format(cursor):
@@ -14,6 +14,7 @@ def create_file_format(cursor):
     FIELD_OPTIONALLY_ENCLOSED_BY = '"'
     DATE_FORMAT = 'YYYY-MM-DD'
 """)
+
 
 def create_stage(cursor):
     config = get_config()

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from src.config_loader import get_config
+from config.config_loader import get_config
 
 
 def upload_files(cursor, data_folder="files/data"):
@@ -11,4 +11,6 @@ def upload_files(cursor, data_folder="files/data"):
     for file in data_folder.glob("*.csv.gz"):
         uri_path = str(file.resolve()).replace("\\", "/")
         print(f"Uploading: {file.name}")
-        cursor.execute(f"PUT 'file://{uri_path}' @{stage_name} AUTO_COMPRESS=FALSE OVERWRITE=TRUE")
+        cursor.execute(
+            f"PUT 'file://{uri_path}' @{stage_name} AUTO_COMPRESS=FALSE OVERWRITE=TRUE"
+        )
